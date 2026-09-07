@@ -7,11 +7,7 @@ namespace InfernalEclipseAPI.Core.Utils
 {
     public class WorldGenWarnings : ModSystem
     {
-        public override bool IsLoadingEnabled(Mod mod)
-        {
-            return false;
-        }
-        // Credit to Calamity Team
+        // what team lol
         public override void Load()
         {
             IL_UIWorldCreation.AddWorldSizeOptions += SwapMediumDescriptionKey;

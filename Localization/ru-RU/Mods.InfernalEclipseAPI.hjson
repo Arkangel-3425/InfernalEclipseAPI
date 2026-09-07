@@ -102,8 +102,12 @@ UI: {
 		Этот мод добавляет множество неописанных изменений, способных сделать ваше прохождение куда, чем оно должно быть в действительности.
 		Мы настоятельно рекомендуем отключить этот мод.
 		'''
-	// MediumWorldWarning: "[c/FF0000:Medium Worlds will likely have problems]"
-	// WorldWarningRemnants: "[c/FF0000:INFERNAL ECLIPSE OF RAGNAROK DOES NOT SUPPORT REMNANTS]"
+	// MediumWorldWarning: "[c/FF0000:Medium Worlds will likely have problems with the Infernal Eclipse of Ragnarok Mod Pack]"
+	// WorldWarningRemnants:
+	//	'''
+	//	[c/FF0000:INFERNUM MODE AND SECRETS OF THE SHADOWS DO NOT SUPPORT REMNANTS]
+	//	[c/FF0000:Please disable Remnants before making the world to ensure everything is generated correctly]
+	//  '''
 }
 
 DifficultyUI: {
