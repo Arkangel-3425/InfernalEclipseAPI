@@ -102,11 +102,11 @@ UI: {
 		Этот мод добавляет множество неописанных изменений, способных сделать ваше прохождение куда, чем оно должно быть в действительности.
 		Мы настоятельно рекомендуем отключить этот мод.
 		'''
-	// MediumWorldWarning: "[c/FF0000:Medium worlds will likely have problems with the Infernal Eclipse of Ragnarok mod pack]"
+	// MediumWorldWarning: "[c/FF0000:MEDIUM WORLDS NOT RECOMMENDED WITH IEOR]"
 	/* WorldWarningRemnants:
 		'''
-		[c/FF0000:INFERNUM MODE AND SECRETS OF THE SHADOWS DO NOT SUPPORT REMNANTS]
-		[c/FF0000:Please disable Remnants before making the world to ensure everything is generated correctly]
+		[c/FF0000:INFERNUM MODE AND SOTS NOT SUPPORTED BY REMNANTS]
+		[c/FF0000:It is recommended to Remnants before continuing!]
 		''' */
 }
 
