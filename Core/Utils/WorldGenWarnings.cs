@@ -31,17 +31,17 @@ namespace InfernalEclipseAPI.Core.Utils
         }
         private static void SwapLargeDescriptionKey(ILContext il)
         {
-            var c = new ILCursor(il);
-            if (!c.TryGotoNext(MoveType.After, x => x.MatchLdstr("UI.WorldDescriptionSizeLarge")))
+            if (ModLoader.HasMod("Remnants"))
             {
-                InfernalEclipseAPI.Instance.Logger.ILFailure("Change Large World Description", "Could not match string \"UI.WorldDescriptionSizeLarge\".");
-                return;
-            }
-            c.Emit(OpCodes.Pop);
-
-            if (!ModLoader.HasMod("Remnants"))
+                var c = new ILCursor(il);
+                if (!c.TryGotoNext(MoveType.After, x => x.MatchLdstr("UI.WorldDescriptionSizeLarge")))
+                {
+                    InfernalEclipseAPI.Instance.Logger.ILFailure("Change Large World Description", "Could not match string \"UI.WorldDescriptionSizeLarge\".");
+                    return;
+                }
+                c.Emit(OpCodes.Pop);
                 c.Emit(OpCodes.Ldstr, "Mods.InfernalEclipseAPI.UI.WorldWarningRemnants");
+            }
         }
-
     }
 }
