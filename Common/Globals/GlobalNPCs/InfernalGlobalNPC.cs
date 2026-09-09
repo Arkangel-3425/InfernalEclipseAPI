@@ -1,29 +1,31 @@
-﻿using InfernalEclipseAPI.Core.World;
-using InfernalEclipseAPI.Content.Items.Placeables.Paintings;
-using Terraria.GameContent.ItemDropRules;
-using InfernalEclipseAPI.Core.Systems;
-using System.Collections.Generic;
-using InfernumMode.Core.GlobalInstances.Systems;
-using CalamityMod.World;
-using CalamityMod.NPCs.Crags;
-using CalamityMod.Items.Fishing.FishingRods;
-using System.Linq;
-using InfernalEclipseAPI.Content.Items.Materials;
-using InfernalEclipseAPI.Core.Players;
-using CalamityMod.Items.Placeables.Furniture.Paintings;
-using Terraria.DataStructures;
+﻿using CalamityMod;
 using CalamityMod.Buffs.StatBuffs;
-using CalamityMod.CalPlayer;
-using CalamityMod;
-using InfernalEclipseAPI.Core.Players.ThoriumPlayerOverrides.ThoriumMulticlassNerf;
-using InfernalEclipseAPI.Core.Utils;
 using CalamityMod.Buffs.StatDebuffs;
-using InfernumMode.Content.BehaviorOverrides.BossAIs.ProfanedGuardians;
+using CalamityMod.CalPlayer;
 using CalamityMod.Events;
-using Terraria.GameContent.Events;
+using CalamityMod.Items.Fishing.FishingRods;
+using CalamityMod.Items.Placeables.Furniture.Paintings;
+using CalamityMod.NPCs.Crags;
+using CalamityMod.NPCs.TownNPCs;
+using CalamityMod.World;
 using InfernalEclipseAPI.Content.Items.Consumables;
-using InfernalEclipseAPI.Core.Configs;
+using InfernalEclipseAPI.Content.Items.Materials;
 using InfernalEclipseAPI.Content.Items.Placeables.MusicBoxes;
+using InfernalEclipseAPI.Content.Items.Placeables.Paintings;
+using InfernalEclipseAPI.Core.Configs;
+using InfernalEclipseAPI.Core.Players;
+using InfernalEclipseAPI.Core.Players.ThoriumPlayerOverrides.ThoriumMulticlassNerf;
+using InfernalEclipseAPI.Core.Systems;
+using InfernalEclipseAPI.Core.Utils;
+using InfernalEclipseAPI.Core.World;
+using InfernumMode.Content.BehaviorOverrides.BossAIs.ProfanedGuardians;
+using InfernumMode.Core.GlobalInstances.Systems;
+using System.Collections.Generic;
+using System.Linq;
+using Terraria.DataStructures;
+using Terraria.GameContent.Events;
+using Terraria.GameContent.ItemDropRules;
+using ThoriumMod.Items.Depths;
 
 namespace InfernalEclipseAPI.Common.GlobalNPCs
 {
@@ -131,6 +133,19 @@ namespace InfernalEclipseAPI.Common.GlobalNPCs
                             break;
                         }
                     }
+                }
+            }
+
+            if (npc.type == ModContent.NPCType<ShadySalesman>())
+            {
+                for (int i = 0; i < items.Length; i++)
+                {
+                    Item item = items[i];
+
+                    if (item.type != ModContent.ItemType<TrustyOldRod>())
+                        continue;
+
+                    item.TurnToAir();
                 }
             }
 

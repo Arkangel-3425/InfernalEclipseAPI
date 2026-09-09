@@ -1,5 +1,5 @@
 ﻿using InfernalEclipseAPI.Content.Items.Placeables.MusicBoxes;
-using InfernalEclipseAPI.Content.Items.Weapons.Donor.Steetsign;
+using InfernalEclipseAPI.Content.Items.Weapons.Catlight;
 using InfernalEclipseAPI.Content.NPCs.LittleCat;
 using InfernalEclipseAPI.Core.Configs;
 using InfernalEclipseAPI.Core.DamageClasses.LegendaryClass;
@@ -98,7 +98,7 @@ namespace InfernalEclipseAPI.Core.Systems
             if (ModLoader.TryGetMod("RecipeBrowser", out Mod mod))
             {
                 const string path = "InfernalEclipseAPI/Assets/Images/UI/RecipeBrowser/ClassIcon";
-                mod.Call("AddItemCategory", Language.GetTextValue("Mods.InfernalEclipseAPI.UI.RecipeBrowserCategories.Legendary"), "Weapons", ModContent.Request<Texture2D>(path + "Legendary"), (Predicate<Item>)(item => item.DamageType == ModContent.GetInstance<LegendaryMagic>() || item.DamageType == ModContent.GetInstance<LegendaryMelee>() || item.DamageType == ModContent.GetInstance<LegendaryRanged>() || item.DamageType == ModContent.GetInstance<LegendarySummonMeleeSpeed>()));
+                mod.Call("AddItemCategory", Language.GetTextValue("Mods.InfernalEclipseAPI.UI.RecipeBrowserCategories.Legendary"), "Weapons", ModContent.Request<Texture2D>(path + "Legendary"), (Predicate<Item>)(item => item.DamageType == ModContent.GetInstance<LegendaryMagic>() || item.DamageType == ModContent.GetInstance<LegendaryMelee>() || item.DamageType == ModContent.GetInstance<LegendaryRanged>() || item.DamageType == ModContent.GetInstance<LegendarySummonMeleeSpeed>() || item.type == ModContent.ItemType<Catlight>()));
                 mod.Call("AddItemCategory", Language.GetTextValue("Mods.InfernalEclipseAPI.UI.RecipeBrowserCategories.Mythical"), "Weapons", ModContent.Request<Texture2D>(path + "Mythic"), (Predicate<Item>)(item => item.DamageType == ModContent.GetInstance<MythicMagic>() || item.DamageType == ModContent.GetInstance<MythicMelee>() || item.DamageType == ModContent.GetInstance<MythicRanged>() || item.DamageType == ModContent.GetInstance<MythicSummon>()));
             }
         }

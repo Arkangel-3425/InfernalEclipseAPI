@@ -23,17 +23,17 @@ using InfernalEclipseAPI.Content.Items.Other;
 using InfernalEclipseAPI.Content.Items.Accessories;
 using InfernalEclipseAPI.Core.Configs;
 using CalamityMod.Items.DraedonMisc;
-using Terraria.Audio;
 using CalamityMod.Tiles.DraedonSummoner;
 using CalamityMod.TileEntities;
+using CalamityMod.Items.Fishing.FishingRods;
 
 namespace InfernalEclipseAPI.Common.Globals.GlobalItems.ModSpecific
 {
     public class InfernalGlobalItem : GlobalItem
     {
-        /*
         public override void SetDefaults(Item item)
         {
+            /*
             if (item.type == ModContent.ItemType<Moonshine>() && InfernalConfig.Instance.CalamityBalanceChanges)
             {
                 item.value = Item.buyPrice(0, 1, 0, 0);
@@ -43,8 +43,13 @@ namespace InfernalEclipseAPI.Common.Globals.GlobalItems.ModSpecific
             {
                 item.value = Item.buyPrice(0, 0, 3, 0);
             }
+            */
+
+            if (item.type == ModContent.ItemType<TrustyOldRod>())
+            {
+                item.fishingPole = 0;
+            }
         }
-        */
 
         public override bool CanUseItem(Item item, Player player)
         {
@@ -55,6 +60,9 @@ namespace InfernalEclipseAPI.Common.Globals.GlobalItems.ModSpecific
             }
 
             if (item.type == ModContent.ItemType<Wayfinder>() && player.Calamity().ZoneAbyss && !DownedBossSystem.downedYharon)
+                return false;
+
+            if (item.type == ModContent.ItemType<TrustyOldRod>())
                 return false;
 
             return base.CanUseItem(item, player);
@@ -284,6 +292,11 @@ namespace InfernalEclipseAPI.Common.Globals.GlobalItems.ModSpecific
                 InfernalUtilities.AddTooltip(tooltips, Language.GetTextValue("Mods.InfernalEclipseAPI.ItemTooltip.TwoAlchs"), Color.Lerp(Color.White, new Color(255, 80, 0), (float)(Math.Sin(Main.GlobalTimeWrappedHourly * 2.0) * 0.5 + 0.5)));
             }
             */
+
+            if (item.type == ModContent.ItemType<TrustyOldRod>())
+            {
+                InfernalUtilities.AddDisabledItemTag(tooltips);
+            }
 
             if (InfernalCrossmod.FargosMutant.Loaded)
             {
