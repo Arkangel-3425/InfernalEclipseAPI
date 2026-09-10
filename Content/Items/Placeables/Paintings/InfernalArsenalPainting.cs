@@ -74,7 +74,7 @@ namespace InfernalEclipseAPI.Content.Items.Placeables.Paintings
 
         public static IList<string> whipsList = new List<string>()
         {
-            ""
+            "Exoegg"
         };
 
         public static IList<string> notHitList = new List<string>()
