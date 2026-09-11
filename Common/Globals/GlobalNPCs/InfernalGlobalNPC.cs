@@ -12,6 +12,7 @@ using InfernalEclipseAPI.Content.Items.Consumables;
 using InfernalEclipseAPI.Content.Items.Materials;
 using InfernalEclipseAPI.Content.Items.Placeables.MusicBoxes;
 using InfernalEclipseAPI.Content.Items.Placeables.Paintings;
+using InfernalEclipseAPI.Content.Items.SpawnItems;
 using InfernalEclipseAPI.Core.Configs;
 using InfernalEclipseAPI.Core.Players;
 using InfernalEclipseAPI.Core.Players.ThoriumPlayerOverrides.ThoriumMulticlassNerf;
@@ -170,6 +171,33 @@ namespace InfernalEclipseAPI.Common.GlobalNPCs
                     if (item.type == hydroArrow || item.type == hydroBullet || item.type == divineArrow || item.type == divineBullet
                         || item.type == weakAstralBullet || item.type == astralBullet || item.type == dazzlingAstralBullet)
                         item.TurnToAir();
+                }
+            }
+
+            if (InfernalCrossmod.Thorium.Loaded)
+            {
+                if (npc.type == InfernalCrossmod.Thorium.Mod.Find<ModNPC>("ConfusedZombie").Type)
+                {
+                    for (int i = 0; i < items.Length; i++)
+                    {
+                        if (items[i] == null || items[i].IsAir)
+                        {
+                            if (InfernalCrossmod.SOTS.Loaded)
+                            {
+                                if (AncientPhylacteryRightClickBlocker.DownedExcavator)
+                                {
+                                    items[i] = new Item(InfernalCrossmod.SOTS.Mod.Find<ModItem>("SeismicStation").Type);
+                                    continue;
+                                }
+
+                                if (AncientPhylacteryRightClickBlocker.DownedPolaris)
+                                {
+                                    items[i] = new Item(InfernalCrossmod.SOTS.Mod.Find<ModItem>("FrostArtifact").Type);
+                                    break;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -1,4 +1,5 @@
 ﻿using CalamityMod.Tiles.Ores;
+using InfernalEclipseAPI.Content.Items.SpawnItems;
 using InfernalEclipseAPI.Core.Configs;
 using InfernalEclipseAPI.Core.Systems;
 using Terraria.ObjectData;
@@ -75,6 +76,15 @@ namespace InfernalEclipseAPI.Common.Balance
                     default:
                         if (tile == ModContent.TileType<ExodiumOre>()) { return NPC.downedMoonlord; }
                         return base.CanKillTile(i, j, tile, ref blockDamaged);
+                }
+            }
+
+            if (InfernalCrossmod.SOTS.Loaded)
+            {
+                if (tile == InfernalCrossmod.SOTS.Mod.Find<ModTile>("SeismicStationTile").Type)
+                {
+                    if (AncientPhylacteryRightClickBlocker.DownedExcavator)
+                        return true;
                 }
             }
             return base.CanKillTile(i, j, tile, ref blockDamaged);
