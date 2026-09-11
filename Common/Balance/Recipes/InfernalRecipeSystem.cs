@@ -736,6 +736,14 @@ namespace InfernalEclipseAPI.Common.Balance.Recipes
                         recipe.RemoveIngredient(thorium.Find<ModItem>("DeathEssence").Type);
                     }
 
+                    if (InfernalConfig.Instance.BossKillCheckOnOres)
+                    {
+                        if (recipe.HasResult(thorium.Find<ModItem>("LihzahrdKukri")))
+                        {
+                            recipe.AddDecraftCondition(Condition.DownedPlantera);
+                        }
+                    }
+
                     if (InfernalConfig.Instance.ThoriumBalanceChangess)
                     {
                         if (recipe.HasResult<UnholyCore>())
@@ -1423,9 +1431,9 @@ namespace InfernalEclipseAPI.Common.Balance.Recipes
                 #endregion
 
                 #region SOTS
-                if (InfernalConfig.Instance.SOTSBalanceChanges)
+                if (ModLoader.TryGetMod("SOTS", out Mod sots))
                 {
-                    if (ModLoader.TryGetMod("SOTS", out Mod sots))
+                    if (InfernalConfig.Instance.SOTSBalanceChanges)
                     {
                         if (InfernalConfig.Instance.MergeCraftingTrees)
                         {
@@ -1707,6 +1715,14 @@ namespace InfernalEclipseAPI.Common.Balance.Recipes
                                 recipe.AddIngredient(sots.Find<ModItem>("SoulOfPlight"), 20);
                         }
                         #endregion
+                    }
+
+                    if (InfernalConfig.Instance.BossKillCheckOnOres)
+                    {
+                        if (recipe.HasResult(sots.Find<ModItem>("SolarBullet")))
+                        {
+                            recipe.AddDecraftCondition(Condition.DownedPlantera);
+                        }
                     }
                 }
                 #endregion
